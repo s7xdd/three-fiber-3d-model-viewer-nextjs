@@ -4,15 +4,9 @@ import { OrbitControls, ContactShadows, Environment, Center } from "@react-three
 import Model from "./model";
 
 export default function ThreeViewer({ modelPath }: { modelPath: string }) {
-  const supportedExtensions = [".gltf", ".glb"];
-  const extension = modelPath?.toLowerCase().match(/\.[0-9a-z]+$/i)?.[0];
 
-  if (!extension || !supportedExtensions.includes(extension)) {
-    return (
-      <div className="h-screen w-screen flex items-center justify-center">
-        <div className="text-center">Unsupported file type</div>
-      </div>
-    );
+  if (!modelPath.trim()) {
+    return <div className="h-screen w-screen flex justify-center text-center items-center">No model uploaded</div>;
   }
 
   return (
