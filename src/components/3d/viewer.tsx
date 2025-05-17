@@ -6,7 +6,7 @@ import Model from "./model";
 export default function ThreeViewer({ modelPath }: { modelPath: string }) {
 
   if (!modelPath.trim()) {
-    return <div className="h-screen w-screen flex justify-center text-center items-center">No model uploaded</div>;
+    return <div className="h-screen w-screen flex justify-center text-center items-center font-bold">No model uploaded</div>;
   }
 
   return (
