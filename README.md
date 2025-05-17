@@ -1,36 +1,137 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 3D Model Viewer
 
-## Getting Started
+A React-based web application for viewing 3D models in GLTF and GLB formats, built with Next.js and React Three Fiber. Upload your 3D models and interact with them using intuitive controls for rotation, panning, and zooming.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **File Upload**: Supports `.gltf` and `.glb` 3D model files + Draco Compressed Models.
+- **Interactive 3D Viewer**: Powered by `@react-three/fiber` and `@react-three/drei` for smooth rendering and controls.
+- **Orbit Controls**: Rotate, pan, and zoom the model using mouse interactions.
+- **Responsive Design**: Adapts to different screen sizes with a clean, modern UI.
+- **Dynamic Lighting & Shadows**: Includes ambient light, directional light with shadows, and environment presets for realistic rendering.
+- **Tailwind CSS Styling**: Sleek, modern UI with semi-transparent panels and hover effects.
+
+## Demo
+
+Upload a `.gltf` or `.glb` file to view it in the 3D canvas. Use the following controls:
+- **Left-click + drag**: Rotate the model.
+- **Right-click + drag**: Pan the view.
+- **Scroll**: Zoom in/out.
+
+## Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+## Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/3d-model-viewer.git
+   cd 3d-model-viewer
+   ```
+
+2. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+   or
+   ```bash
+   yarn install
+   ```
+
+3. **Run the Development Server**:
+   ```bash
+   npm run dev
+   ```
+   or
+   ```bash
+   yarn dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:3000`.
+
+## Project Structure
+
+```plaintext
+├── .next
+├── node_modules
+├── public
+│   └── table.glb           # Optional default model for testing
+├── src
+│   ├── app
+│   │   ├── favicon.ico
+│   │   ├── globals.css     # Global styles (Tailwind CSS)
+│   │   ├── layout.tsx
+│   │   └── page.tsx        # Main page combining viewer and upload components
+│   ├── components
+│   │   ├── 3d
+│   │   │   ├── model.tsx   # 3D model component
+│   │   │   └── viewer.tsx  # 3D viewer component using React Three Fiber
+│   │   └── custom
+│   │       └── file-upload.tsx  # File upload component for .gltf/.glb files
+├── .eslintrc.js
+├── .gitattributes
+├── .gitignore
+├── .eslintrc.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── prettier.config.js
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Usage
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Upload a Model**:
+   - Click the "Choose File" button in the top-left panel.
+   - Select a `.gltf` or `.glb` file from your device.
+   - The model will load in the 3D viewer, and the file name will be displayed.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Interact with the Model**:
+   - Use the mouse to rotate, pan, or zoom the model.
+   - The controls guide in the top-right panel provides interaction details.
 
-## Learn More
+3. **Testing with Default Model**:
+   - Uncomment the `useState` line in `src/app/page.tsx` to load a default model (`/table.glb`) from the `public` folder.
 
-To learn more about Next.js, take a look at the following resources:
+## Technologies Used
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js**: React framework for server-side rendering and static site generation.
+- **React Three Fiber**: React renderer for Three.js.
+- **@react-three/drei**: Utilities for Three.js, including OrbitControls, Environment, and ContactShadows.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **TypeScript**: Type-safe JavaScript for better developer experience.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Styling
 
-## Deploy on Vercel
+The application uses **Tailwind CSS** for a modern, responsive UI. Key styling features include:
+- **Semi-transparent Panels**: Upload and control panels use `bg-opacity-30` and `backdrop-blur-md` for a frosted glass effect.
+- **Hover Effects**: Buttons feature smooth transitions with `hover:bg-blue-700`.
+- **Responsive Layout**: Full-screen canvas with absolute-positioned UI elements.
+- **Custom Colors**: Dark theme with `bg-gray-900`, `text-gray-100`, and `border-gray-700` for a sleek look.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To customize styles, modify `src/app/globals.css` or update Tailwind classes in the components.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Limitations
+
+- Only `.gltf` and `.glb` formats are supported.
+- Large models may impact performance depending on the device.
+- No support for model editing or advanced material customization.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Make your changes and commit (`git commit -m "Add your feature"`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a pull request.
+
+## Acknowledgments
+
+- [React Three Fiber](https://github.com/pmndrs/react-three-fiber)
+- [Drei](https://github.com/pmndrs/drei)
+- [Tailwind CSS](https://tailwindcss.com/)
