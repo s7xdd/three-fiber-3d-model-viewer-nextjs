@@ -99,7 +99,7 @@ Upload a `.gltf` or `.glb` file to view it in the 3D canvas. Use the following c
 
 ## Technologies Used
 
-- **Next.js**: React framework for server-side rendering and static site generation.
+- **Next.js 15.3.2**: React framework for server-side rendering and static site generation.
 - **React Three Fiber**: React renderer for Three.js.
 - **@react-three/drei**: Utilities for Three.js, including OrbitControls, Environment, and ContactShadows.
 - **Tailwind CSS**: Utility-first CSS framework for styling.
