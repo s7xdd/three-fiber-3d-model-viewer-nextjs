@@ -1,6 +1,6 @@
 # 3D Model Viewer
 
-A React-based web application for viewing 3D models in GLTF and GLB formats, built with Next.js and React Three Fiber. Upload your 3D models and interact with them using intuitive controls for rotation, panning, and zooming.
+A React-based web application for viewing 3D models in GLTF and GLB formats, built with Next.js and React Three Fiber. Upload your 3D models and interact with them using intuitive controls for rotation, panning, and zooming. For integrations into projects with 3D file from backend, remove the file upload component and provide a model path to the model path state.
 
 ## Features
 
